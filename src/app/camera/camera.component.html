@@ -1,0 +1,64 @@
+<div class="main">
+  <div id="content">
+    <div class="form-group form-check" id="check">
+      <label class="checkBoxLable">
+        <input type="checkbox" [(ngModel)]="model.object" /> Object
+      </label>
+      <label class="checkBoxLable">
+        <input type="checkbox" [(ngModel)]="model.segmentation" />
+        Segmentation
+      </label>
+      <label class="checkBoxLable">
+        <input type="checkbox" [(ngModel)]="model.rowImage" /> Row Image
+      </label>
+    </div>
+    <div class="container video">
+      <vg-player>
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+
+        <vg-scrub-bar>
+          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-controls>
+          <vg-play-pause></vg-play-pause>
+          <vg-playback-button></vg-playback-button>
+
+          <vg-time-display
+            vgProperty="current"
+            vgFormat="mm:ss"
+          ></vg-time-display>
+
+          <vg-scrub-bar style="pointer-events: none"></vg-scrub-bar>
+
+          <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+          <vg-time-display
+            vgProperty="total"
+            vgFormat="mm:ss"
+          ></vg-time-display>
+
+          <vg-track-selector></vg-track-selector>
+          <vg-mute></vg-mute>
+          <vg-volume></vg-volume>
+          <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+        <video
+          #media
+          #vgHls="vgHls"
+          width="1000"
+          height="800"
+          crossorigin
+          controls
+          [vgMedia]="media"
+          [vgHls]="
+            'http://demo.unified-streaming.com/video/tears-of-steel/tears-of-steel.ism/.m3u8'
+          "
+          id="singleVideo"
+          type="video/mp4"
+        ></video>
+      </vg-player>
+    </div>
+  </div>
+</div>

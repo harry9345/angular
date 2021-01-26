@@ -1,0 +1,19 @@
+.main {
+  display: flex;
+  height: 100%;
+  margin-top: 80px;
+  margin-left: 16%;
+}
+
+#check {
+  text-align: center;
+}
+.checkBoxLable {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.video {
+  width: 90%;
+  height: 60%;
+}
