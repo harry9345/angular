@@ -25,7 +25,7 @@
               "node_modules/@videogular/ngx-videogular/fonts/videogular.css",
               "src/styles.css"
             ],
-            "scripts": ["../node_modules/hls.js/dist/hls.min.js"]
+            "scripts": ["./node_modules/hls.js/dist/hls.min.js"]
           },
           "configurations": {
             "production": {

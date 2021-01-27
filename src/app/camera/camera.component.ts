@@ -7,7 +7,6 @@ export interface IMediaStream {
   source: string;
   label: string;
 }
-declare var Hls;
 
 @Component({
   selector: "app-camera",
@@ -15,17 +14,12 @@ declare var Hls;
   styleUrls: ["./camera.component.css"],
 })
 export class CameraComponent implements OnInit {
-  @ViewChild(VgHlsDirective, { static: true }) vgHls: VgHlsDirective[] = [];
+  @ViewChild(VgHlsDirective, { static: true }) vgHls: VgHlsDirective;
 
   currentStream: IMediaStream;
-  api: VgApiService[];
+  api: VgApiService;
 
-  bitrates: BitrateOptions[] = [];
-  model = {
-    object: true,
-    segmentation: true,
-    rowImage: true,
-  };
+  bitrates: BitrateOptions[];
 
   streams: IMediaStream[] = [
     {
