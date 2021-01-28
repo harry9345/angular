@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { VgApiService, BitrateOptions } from "@videogular/ngx-videogular/core";
+import {
+  IDRMLicenseServer,
+  BitrateOptions,
+} from "@videogular/ngx-videogular/core";
 import { VgHlsDirective } from "@videogular/ngx-videogular/streaming";
 
 export interface IMediaStream {
   type: "hls";
   source: string;
   label: string;
+  token?: string;
+  licenseServers?: IDRMLicenseServer;
 }
 
 @Component({
@@ -15,9 +20,7 @@ export interface IMediaStream {
 })
 export class CameraComponent implements OnInit {
   @ViewChild(VgHlsDirective, { static: true }) vgHls: VgHlsDirective;
-
   currentStream: IMediaStream;
-  api: VgApiService;
 
   bitrates: BitrateOptions[];
 
@@ -30,17 +33,11 @@ export class CameraComponent implements OnInit {
     },
   ];
 
-  onPlayerReady(api: VgApiService) {
-    this.api = api;
-  }
-
   ngOnInit() {
     this.currentStream = this.streams[0];
   }
 
   setBitrate(option: BitrateOptions) {
-    if (this.currentStream.type === "hls") {
-      this.vgHls.setBitrate(option);
-    }
+    this.vgHls.setBitrate(option);
   }
 }

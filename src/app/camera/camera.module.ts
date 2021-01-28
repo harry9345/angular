@@ -21,4 +21,4 @@ import { VgStreamingModule } from "@videogular/ngx-videogular/streaming";
   ],
   declarations: [CameraComponent],
 })
-export class StreamingPlayerModule {}
+export class CameraComponentModule {}

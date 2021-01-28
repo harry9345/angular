@@ -1,4 +1,4 @@
-<vg-player (onPlayerReady)="onPlayerReady($event)">
+<vg-player>
   <vg-overlay-play></vg-overlay-play>
   <vg-buffering></vg-buffering>
 
@@ -11,14 +11,12 @@
     </vg-scrub-bar>
 
     <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-
     <vg-quality-selector
       *ngIf="bitrates"
       (onBitrateChange)="setBitrate($event)"
       [bitrates]="bitrates"
     >
     </vg-quality-selector>
-
     <vg-mute></vg-mute>
     <vg-volume></vg-volume>
 
